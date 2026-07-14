@@ -1,8 +1,8 @@
 {
   "name": "part1_wedding",
   "version": "0.1.0",
-  "homepage": "https://dbfla6302.github.io/Wedding-Invitation",
   "private": true,
+  "homepage": "https://dbfla6302.github.io/Wedding-Invitation",
   "dependencies": {
     "@tanstack/react-query": "^5.101.2",
     "@testing-library/dom": "^10.4.0",
