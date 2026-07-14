@@ -21,6 +21,8 @@ interface ShareProps {
   date: string
 }
 
+const SHARE_URL = 'https://dbfla6302.github.io/Wedding-Invitation/'
+
 function Share({ groomName, brideName, date }: ShareProps) {
   useEffect(() => {
     const script = document.createElement('script')
@@ -47,16 +49,16 @@ function Share({ groomName, brideName, date }: ShareProps) {
         imageUrl:
           'https://img.freepik.com/premium-vector/cute-asian-groom-and-bride-characters-flat-design-style-vector-illustration_540284-382.jpg',
         link: {
-          mobileWebUrl: window.location.origin,
-          webUrl: window.location.origin,
+          mobileWebUrl: SHARE_URL,
+          webUrl: SHARE_URL,
         },
       },
       buttons: [
         {
           title: '청첩장 보기',
           link: {
-            mobileWebUrl: window.location.origin,
-            webUrl: window.location.origin,
+            mobileWebUrl: SHARE_URL,
+            webUrl: SHARE_URL,
           },
         },
       ],
@@ -70,7 +72,7 @@ function Share({ groomName, brideName, date }: ShareProps) {
           <IconKakao />
         </button>
         <CopyToClipboard
-          text={window.location.origin}
+          text={SHARE_URL}
           onCopy={() => {
             window.alert('복사가 완료되었습니다.')
           }}
