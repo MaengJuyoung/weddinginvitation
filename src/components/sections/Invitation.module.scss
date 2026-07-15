@@ -2,6 +2,7 @@
 
 .container {
     @include txt-content;
+    margin:  0 24px 10vh;
 
     .ico-post {
         width: 20px;

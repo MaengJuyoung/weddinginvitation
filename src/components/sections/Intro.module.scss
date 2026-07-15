@@ -2,15 +2,63 @@
 
 .container {
     @include txt-content;
+    padding: 10vh 0;
 
     .wrap-persons { 
-        font-size: 22px;
+        font-size: 20px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         letter-spacing: 1.4px;
         font-weight: bold;
-        margin: 42px 0 8px;
+        margin: 70px 7px 15px;
+
+        ul{
+            width: 49%;
+            box-sizing: border-box;
+
+            li{
+                position: relative;
+                margin-bottom: 15px;
+
+                &:nth-of-type(1){
+                    img{
+                        width: 100%;
+                        border-radius: 2px;
+                        object-fit: cover;
+                        box-shadow: 1px 1px 5px 1px #ccc;
+                    }
+                }
+  
+                span{
+                    s{
+                        text-decoration: none;
+                        font-size: 15px;
+                        color: #abc4ff;
+                    }
+                }
+                &.parents{
+                    font-weight: 100;
+                    font-size: 14px;
+                    & span{
+                        position: relative;
+                        .ico-flower{
+                            position: absolute;
+                            top: -10px;
+                            left: -15px;
+                            width: 15px;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(2){
+                span{
+                    s{
+                        color: #eeb1c1;
+                    }
+                }
+            }
+        }
 
         .ico-heart {
             fill: var(--red);
@@ -20,15 +68,20 @@
         }
     }
 
-    .ico-flower {
-        width: 24px;
-        height: 24px;
-        margin-bottom: 6px;
+    .invitation {
+        font-size: 18px;
+        font-weight: bold;
+        color: #6eb5ff;
+        margin: 20px 0 25px;
+    }
+
+    .intro{
+        color: #333;
     }
 
     .wrap-location {
         display: flex;
         flex-direction: column;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 }

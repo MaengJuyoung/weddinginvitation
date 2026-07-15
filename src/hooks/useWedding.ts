@@ -3,10 +3,6 @@ import { useSuspenseQuery } from '@tanstack/react-query'
 import { Wedding } from '@models/wedding'
 import { getWedding } from '../api/wedding'
 
-interface WeddingResponse {
-  wedding: Wedding
-}
-
 function useWedding() {
   const query = useSuspenseQuery({
     queryKey: ['wedding'],
@@ -18,9 +14,9 @@ function useWedding() {
         throw new Error('청첩장 정보를 불러오지 못했습니다.')
       }
 
-      const data: WeddingResponse = await response.json()
+      const wedding: Wedding = await response.json()
 
-      return data.wedding
+      return wedding
     },
   })
 

@@ -1,30 +1,41 @@
 .wrap-accoridon {
-    margin-bottom: 6px;
+    margin-bottom: 20px;
 
     .wrap-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px;
-        background-color: var(--beige);
+        background-color: #fff;
         border-radius: 6px;
+        box-shadow: 1px 1px 5px 0.5px #ccc;
         cursor: pointer;
 
         .ico-arrow-down {
             width: 20px;
             height: 20px;
-
-           
+            fill: #aaa;
         }
     }
 
     .wrap-content {
         display: none;
+        padding: 20px 10px;
+        background: #e2eafc;
+        border-radius: 0 0 6px 6px;
+        box-shadow: 1px 2px 5px 1px #ccc;
+    }
+
+    &:nth-of-type(3){
+        .wrap-content {
+            background: #ffebef;
+        }
     }
 }
 
 .wrap-accoridon.open {
     .wrap-header {
+        border-radius: 6px 6px 0 0;
         .ico-arrow-down {
           transform: rotate(-180deg);
         }

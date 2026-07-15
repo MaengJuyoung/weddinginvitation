@@ -5,8 +5,8 @@ export interface Wedding {
   groom: Person & { parents: Person[] }
   bride: Person & { parents: Person[] }
   message: {
-    intro: string
     invitation: string
+    intro: string
   }
   galleryImages: string[]
   attendCount: number

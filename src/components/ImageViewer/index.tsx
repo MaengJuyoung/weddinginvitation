@@ -1,11 +1,12 @@
-import SwiperCore, { Navigation } from 'swiper'
+import { Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import classNames from 'classnames/bind'
 import styles from './ImageViewer.module.scss'
 import Dimmed from '../shared/Dimmed'
 import 'swiper/css'
-import './swiper.css'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import './swiper.css'
 import { useEffect } from 'react'
 import generateImageUrl from '@/utils/generateImageUrl'
 
@@ -31,45 +32,54 @@ function ImageViewer({
       document.body.style.overflow = ''
     }
   }, [open])
+
   const hasNavigation = (images?.length ?? 0) > 1
 
-  if (open === false) return null
+  if (!open) return null
 
   return (
     <Dimmed>
       <CloseButton className={cx('icon-close')} onClose={onClose} />
+
       <Swiper
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
         spaceBetween={20}
         slidesPerView={1}
         loop={hasNavigation}
         initialSlide={selectedIdx}
         navigation={hasNavigation}
+        pagination={
+          hasNavigation
+            ? {
+                type: 'fraction',
+              }
+            : false
+        }
+        className={cx('image-swiper')}
       >
-        {images?.map((src, idx) => {
-          return (
-            <SwiperSlide key={idx}>
-              <picture>
-                <source
-                  srcSet={generateImageUrl({
-                    filename: src,
-                    format: 'webp',
-                    cnm: '455',
-                  })}
-                  type="image/webp"
-                />
-                <img
-                  src={generateImageUrl({
-                    filename: src,
-                    format: 'jpg',
-                    cnm: '116',
-                  })}
-                  alt="이미지"
-                />
-              </picture>
-            </SwiperSlide>
-          )
-        })}
+        {images?.map((src, idx) => (
+          <SwiperSlide key={`${src}-${idx}`}>
+            <picture>
+              <source
+                srcSet={generateImageUrl({
+                  filename: src,
+                  format: 'webp',
+                  cnm: '1116',
+                })}
+                type="image/webp"
+              />
+
+              <img
+                src={generateImageUrl({
+                  filename: src,
+                  format: 'jpg',
+                  cnm: '1455',
+                })}
+                alt={`갤러리 이미지 ${idx + 1}`}
+              />
+            </picture>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </Dimmed>
   )
@@ -90,7 +100,6 @@ function CloseButton({
       xmlns="http://www.w3.org/2000/svg"
       onClick={onClose}
     >
-      <defs></defs>
       <path d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z" />
       <path d="M16.707,7.293a1,1,0,0,0-1.414,0L12,10.586,8.707,7.293A1,1,0,1,0,7.293,8.707L10.586,12,7.293,15.293a1,1,0,1,0,1.414,1.414L12,13.414l3.293,3.293a1,1,0,0,0,1.414-1.414L13.414,12l3.293-3.293A1,1,0,0,0,16.707,7.293Z" />
     </svg>

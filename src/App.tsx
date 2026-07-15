@@ -11,7 +11,6 @@ import Calendar from './components/sections/Calendar'
 import Map from './components/sections/Map'
 import Contact from './components/sections/Contact'
 import Share from './components/sections/Share'
-import AttendCountModal from './components/AttendCountModal'
 
 import useWedding from './hooks/useWedding'
 
@@ -30,7 +29,7 @@ function App() {
     groom,
     bride,
     location,
-    message: { intro, invitation },
+    message: { invitation, intro },
   } = wedding
 
   return (
@@ -39,18 +38,20 @@ function App() {
       <Video />
       <Intro
         groomName={groom.name}
+        groomParents={groom.parents}
         brideName={bride.name}
+        brideParents={bride.parents}
         locationName={location.name}
         date={date}
-        message={intro}
+        invitation={invitation}
+        intro={intro}
       />
-      <Invitation message={invitation} />
-      <ImageGallery images={galleryImages} />
+      {/* <Invitation message={intro} /> */}
       <Calendar date={date} />
+      <ImageGallery images={galleryImages} />
       <Map location={location} />
       <Contact groom={groom} bride={bride} />
       <Share groomName={groom.name} brideName={bride.name} date={date} />
-      <AttendCountModal wedding={wedding} />
     </div>
   )
 }

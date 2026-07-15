@@ -18,14 +18,38 @@
 
 .swiper-button-prev,
 .swiper-button-next {
+    top: 32px !important;
     width: 25px !important;
     height: 25px !important;
-    color: rgba(255, 255, 255, 0.4);
+    color: #777777cc;
+}
+
+.swiper-button-next{
+    left: 100px !important;
 }
 
 .swiper-button-prev::after,
 .swiper-button-next::after{
     font-size: 25px !important;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.4);
+    color: #777777cc;
 }
+
+.swiper-pagination {
+    position: absolute;
+    top: 15px;
+    bottom: auto;
+    left: 68px;
+    width: auto;
+    transform: translateX(-50%);
+    color: #777;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    z-index: 10;
+  }
+
+.swiper-pagination-current,
+.swiper-pagination-total {
+    color: #777;
+  }

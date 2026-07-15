@@ -1,16 +1,19 @@
 import React from 'react'
 
-function Text({ children }: { children: string }) {
-  const message = children.split('\n').map((str, idx, array) => {
-    return (
-      <React.Fragment key={idx}>
-        {str}
-        {idx === array.length - 1 ? null : <br />}
-      </React.Fragment>
-    )
-  })
+interface TextProps {
+  children: string
+  className?: string
+}
 
-  return <div>{message}</div>
+function Text({ children, className }: TextProps) {
+  const message = children.split('\n').map((str, idx, array) => (
+    <React.Fragment key={idx}>
+      <span dangerouslySetInnerHTML={{ __html: str }} />
+      {idx === array.length - 1 ? null : <br />}
+    </React.Fragment>
+  ))
+
+  return <div className={className}>{message}</div>
 }
 
 export default Text

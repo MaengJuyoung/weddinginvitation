@@ -1,7 +1,12 @@
 .container{
+    padding: 0 !important;
     video{
         width: 100%;
         border-radius: 8px;
         min-height: 250px;
+    }
+    img{
+        width: 100%;
+        object-fit: cover;
     }
 }

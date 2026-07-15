@@ -23,7 +23,7 @@ const css = `
     font-size: 14px;
   }
   .rdp-selected .rdp-day_button{
-    background-color: #3a7ee0;
+    background-color: #7c8bd2;
     color: #fff;
     font-weight: bold;
     border: none;
@@ -39,14 +39,18 @@ function Calendar({ date }: { date: string }) {
 
   return (
     <Section
+      className={cx('container')}
       title={
-        <div className={cx('wrap-header')}>
-          <span className={cx('txt-date')}>
-            {format(weddingDate, 'yyyy.MM.dd')}
-          </span>
-          <span className={cx('txt-time')}>
-            {format(weddingDate, 'aaa h시 eeee', { locale: ko })}
-          </span>
+        <div>
+          <h2>WEDDING DAY</h2>
+          <div className={cx('wrap-header')}>
+            <span className={cx('txt-date')}>
+              {format(weddingDate, 'yyyy.MM.dd')}
+            </span>
+            <span className={cx('txt-time')}>
+              {format(weddingDate, 'aaa h시 eeee', { locale: ko })}
+            </span>
+          </div>
         </div>
       }
     >
