@@ -32,7 +32,7 @@ function Map({ location }: { location: Location }) {
 
         const options = {
           center: position,
-          level: 3,
+          level: 4,
         }
 
         const market = new window.kakao.maps.Marker({
@@ -91,6 +91,18 @@ function Map({ location }: { location: Location }) {
           icon={<IconSubway className={cx('ico-subway')} />}
           label="지하철"
           list={location.waytocome.metro}
+        />
+
+        <WayToCome
+          icon={<IconCar className={cx('ico-car')} />}
+          label="자차"
+          list={location.waytocome.car}
+        />
+
+        <WayToCome
+          icon={<IconParking className={cx('ico-parking')} />}
+          label="주차"
+          list={location.waytocome.parking}
         />
       </div>
     </Section>
@@ -263,6 +275,88 @@ function IconSubway({ className }: { className: string }) {
         stroke="#ABC1FF"
         stroke-width="1.8"
         stroke-linecap="round"
+      />
+    </svg>
+  )
+}
+
+function IconCar({ className }: { className: string }) {
+  return (
+    <svg
+      className={className}
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+    >
+      <path
+        d="M8.2 13.2L10.1 8.5C10.45 7.62 11.3 7 12.25 7H19.75C20.7 7 21.55 7.62 21.9 8.5L23.8 13.2"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M7.5 13.2H24.5C25.33 13.2 26 13.87 26 14.7V22.2C26 23.19 25.19 24 24.2 24H7.8C6.81 24 6 23.19 6 22.2V14.7C6 13.87 6.67 13.2 7.5 13.2Z"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M6.5 16H4.8V13.8H7.2M25.5 16H27.2V13.8H24.8"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <circle
+        cx="10.5"
+        cy="18.2"
+        r="1.5"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+      <circle
+        cx="21.5"
+        cy="18.2"
+        r="1.5"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+      <path
+        d="M10 22H22M8.5 24V27M23.5 24V27"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+      />
+    </svg>
+  )
+}
+
+function IconParking({ className }: { className: string }) {
+  return (
+    <svg
+      className={className}
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+    >
+      <rect
+        x="5"
+        y="5"
+        width="22"
+        height="22"
+        rx="5"
+        stroke="currentColor"
+        stroke-width="1.7"
+      />
+      <path
+        d="M12 23V9.5H17.1C20.1 9.5 22 11.3 22 14C22 16.7 20.1 18.5 17.1 18.5H12"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   )

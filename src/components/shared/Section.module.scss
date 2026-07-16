@@ -1,10 +1,23 @@
 .container {
-    padding: 24px;
+  padding: 24px;
 
-    .txt-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 24px;
-    }
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    visibility 0.8s ease;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .txt-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
 }
-

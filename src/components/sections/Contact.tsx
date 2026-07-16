@@ -94,8 +94,11 @@ function ContactInfo({
       </div>
       {/* 버튼들 */}
       <ul className={cx('wrap-buttons')}>
-        <li></li>
-        <li>
+        <li
+          className={cx({
+            has_kakao: account.kakaopayLink != null,
+          })}
+        >
           <CopyToClipboard
             text={`${account.bankName} ${account.accountNumber}`}
             onCopy={() => {
@@ -103,22 +106,20 @@ function ContactInfo({
             }}
           >
             <button className={cx('button')}>
-              복사하기 <IconCopy className={cx('ico-copy')} />
+              계좌번호 복사하기 <IconCopy className={cx('ico-copy')} />
             </button>
           </CopyToClipboard>
-        </li>
-        {account.kakaopayLink != null ? (
-          <li className={cx('kakao_button')}>
+          {account.kakaopayLink != null ? (
             <a
               href={account.kakaopayLink}
-              className={cx('button')}
+              className={cx('button', 'kakao_button')}
               target="_blank"
               rel="noreferrer"
             >
-              송금하기 <IconCoin className={cx('ico-coin')} />
+              Pay <IconCoin className={cx('ico-coin')} />
             </a>
-          </li>
-        ) : null}
+          ) : null}
+        </li>
       </ul>
     </div>
   )

@@ -8,7 +8,7 @@ function Video() {
   const ASSET_BASE_URL =
     'https://maengjuyoung.github.io/weddinginvitation/assets'
   return (
-    <Section className={cx('container')}>
+    <Section className={cx('container')} useReveal={false}>
       <img src={`${ASSET_BASE_URL}/main.gif`} />
       {/* <video
         autoPlay={true}

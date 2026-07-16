@@ -1,3 +1,4 @@
+import Section from '@shared/Section'
 import classNames from 'classnames/bind'
 import styles from './Intro.module.scss'
 import { parseISO, format } from 'date-fns'
@@ -37,7 +38,7 @@ function Intro({
   intro,
 }: IntroProps) {
   return (
-    <section className={cx('container')}>
+    <Section className={cx('container')}>
       <HeartLine />
 
       <Text className={cx('invitation')}>{invitation}</Text>
@@ -89,7 +90,7 @@ function Intro({
           </li>
         </ul>
       </div>
-    </section>
+    </Section>
   )
 }
 

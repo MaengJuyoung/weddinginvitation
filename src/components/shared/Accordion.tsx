@@ -11,7 +11,7 @@ interface AccordionProps {
 }
 
 function Accordion({ label, children }: PropsWithChildren<AccordionProps>) {
-  const [expanded, setExpanded] = useState(true)
+  const [expanded, setExpanded] = useState(false)
 
   const handleToggle = () => {
     setExpanded((prev) => !prev)

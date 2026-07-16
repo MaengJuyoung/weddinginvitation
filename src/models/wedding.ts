@@ -21,6 +21,8 @@ export interface Location {
   waytocome: {
     metro: string[]
     bus: string[]
+    car: string[]
+    parking: string[]
   }
 }
 

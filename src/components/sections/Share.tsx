@@ -46,8 +46,7 @@ function Share({ groomName, brideName, date }: ShareProps) {
         title: `${groomName} 💙 ${brideName} 결혼합니다.`,
         description: `${format(parseISO(date), 'yyyy년 M월 d일 eeee aaa h시', {
           locale: ko,
-        })}
-        하우스 오브 더 라움 B1 아마리스홀`,
+        })}\n하우스 오브 더 라움 B1 아마리스홀`,
         imageUrl:
           'https://res.cloudinary.com/y0qp0xrk/image/upload/v1784098420/kakao_thumbnail.png',
         link: {
@@ -81,7 +80,7 @@ function Share({ groomName, brideName, date }: ShareProps) {
           }}
         >
           <button type="button">
-            <span>청첩장 주소 복사하기</span>
+            {/* <span>청첩장 주소 복사하기</span> */}
             <IconClipboard className={cx('ico-copy')} />
           </button>
         </CopyToClipboard>

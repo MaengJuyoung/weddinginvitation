@@ -1,6 +1,6 @@
 .container{
-    padding: 13vh 24px;
-    background: #F8F8F8;
+    padding: 13vh 24px 3vh;
+    // background: #F8F8F8;
 
     .wrap-header{
         text-align: center;
@@ -18,7 +18,7 @@
     }
 
     .wrap-contact {
-        padding: 20px 15px;
+        padding: 20px;
         background: #fff;
         margin-top: 15px;
         border-radius: 5px;
@@ -62,33 +62,51 @@
 
         .wrap-buttons {
             margin: 15px 0 0;
-            .button {
-                width: 100%;
-                height: 30px;
-                line-height: 30px;
+            
+            li{
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                font-weight: 400;
-                margin-bottom: 6px;
-                font-size: 14px;
-                color: #fff;
-                background: #aaa;
-                border: 1px solid #aaa;
-                border-radius: 4px;
-                box-sizing: border-box;
-                cursor: pointer;
-                svg{
-                    width: 25px;
-                }
-            }
 
-            .kakao_button{
                 .button {
-                    color: #333;
-                    border-color: #FCE777;
-                    background: #FCE777;
+                    width: 100%;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 15px 0 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: #fff;
+                    background: #aaa;
+                    border: 1px solid #aaa;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                    svg{
+                        width: 25px;
+                    }
                 }
+
+                &.has_kakao{
+                    justify-content: space-between;
+                    .button {
+                        width: 77%;
+                    }
+                    .kakao_button{
+                        width: 20%;
+                        color: #333;
+                        border-color: #FCE777;
+                        background: #FCE777;
+                        font-size: 12px;
+                        font-weight: bold;
+                        padding: 0 2px 0 7px;
+                        svg{
+                            width: 23px;
+                        }
+                    }
+                }
+    
             }
         }
     }

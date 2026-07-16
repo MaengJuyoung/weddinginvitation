@@ -19,9 +19,10 @@ function Heading({ date }: { date: string }) {
   const weddingDate = parseISO(date)
 
   return (
-    <Section className={cx('container', 'nonepd')}>
-      <div className={cx('txt-date')}>{format(weddingDate, 'yyyy.MM.dd')}</div>
-      <div className={cx('txt-day')}>{days[getDay(weddingDate)]}</div>
+    <Section className={cx('container', 'nonepd')} useReveal={false}>
+      <div className={cx('txt-date')}>Our Wedding Day!</div>
+      {/* <div className={cx('txt-date')}>{format(weddingDate, 'yyyy.MM.dd')}</div> */}
+      {/* <div className={cx('txt-day')}>{days[getDay(weddingDate)]}</div> */}
     </Section>
   )
 }

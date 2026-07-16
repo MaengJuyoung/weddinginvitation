@@ -1,33 +1,37 @@
 .container{
-    padding: 10vh 24px 5vh;
+    padding: 0 24px 5vh;
 
     .wrap-share {
         margin-bottom: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         button{
             display: flex;
-            width: 100%;
-            justify-content: space-between;
+            width: 15%;
+            height: 45px;
+            justify-content: center;
             align-items: center;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 10px;
+            border-radius: 5px;
             box-shadow: 1px 1px 5px 0.5px #ccc;
-            margin-top: 15px;
             color: #fff;
             background: #abc1ff;
             cursor: pointer;
             
             &:nth-of-type(1){
+                width: 80%;
                 color: #333;
+                padding: 10px 15px;
                 background: #FCE777;
-                margin-top: 0;
+                justify-content: space-between;
             }
         }
 
         svg {
             width: 22px;
             height: 22px;
-            margin-right: 10px;
         }
     }
 
@@ -43,21 +47,23 @@
         left: 50%;
         top: 0;
         transform: translate(-50%, -50%);
-        min-width: 180px;
-        height: 40px;
+        min-width: 170px;
+        height: 35px;
         display: flex;
         justify-content: center;
         align-items: center;
         background: #7c8bd2;
         border-radius: 999px;
         color: #fff;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
     }
     .notice-content{
         text-align: center;
         font-weight: bold;
+        font-size: 16px;
         line-height: 22px;
         color: #7c8bd2;
+        white-space: nowrap;
     }
 }

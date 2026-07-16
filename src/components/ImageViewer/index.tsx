@@ -1,4 +1,4 @@
-import { Navigation, Pagination } from 'swiper'
+import { Autoplay, Navigation, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import classNames from 'classnames/bind'
 import styles from './ImageViewer.module.scss'
@@ -7,7 +7,8 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import './swiper.css'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
+import type { Swiper as SwiperType } from 'swiper'
 import generateImageUrl from '@/utils/generateImageUrl'
 
 const cx = classNames.bind(styles)
@@ -23,13 +24,37 @@ function ImageViewer({
   selectedIdx: number
   onClose: () => void
 }) {
+  const swiperRef = useRef<SwiperType | null>(null)
+
   useEffect(() => {
     if (!open) return
 
+    const scrollY = window.scrollY
+
+    document.documentElement.style.overflow = 'hidden'
+    document.documentElement.style.overscrollBehavior = 'none'
+
+    document.body.style.position = 'fixed'
+    document.body.style.top = `-${scrollY}px`
+    document.body.style.left = '0'
+    document.body.style.right = '0'
+    document.body.style.width = '100%'
     document.body.style.overflow = 'hidden'
+    document.body.style.touchAction = 'none'
 
     return () => {
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.overscrollBehavior = ''
+
+      document.body.style.position = ''
+      document.body.style.top = ''
+      document.body.style.left = ''
+      document.body.style.right = ''
+      document.body.style.width = ''
       document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+
+      window.scrollTo(0, scrollY)
     }
   }, [open])
 
@@ -42,7 +67,25 @@ function ImageViewer({
       <CloseButton className={cx('icon-close')} onClose={onClose} />
 
       <Swiper
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination, Autoplay]}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper
+        }}
+        onTouchStart={(swiper) => {
+          swiper.autoplay.stop()
+        }}
+        onTouchEnd={(swiper) => {
+          swiper.autoplay.start()
+        }}
+        autoplay={
+          hasNavigation
+            ? {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }
+            : false
+        }
         spaceBetween={20}
         slidesPerView={1}
         loop={hasNavigation}
@@ -59,7 +102,14 @@ function ImageViewer({
       >
         {images?.map((src, idx) => (
           <SwiperSlide key={`${src}-${idx}`}>
-            <picture>
+            <picture
+              onMouseEnter={() => {
+                swiperRef.current?.autoplay.stop()
+              }}
+              onMouseLeave={() => {
+                swiperRef.current?.autoplay.start()
+              }}
+            >
               <source
                 srcSet={generateImageUrl({
                   filename: src,
