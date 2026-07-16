@@ -76,7 +76,7 @@ function Map({ location }: { location: Location }) {
           rel="noreferrer"
         >
           <IconPin className={cx('ico-pin')} />
-          길찾기
+          카카오맵 열기
         </a>
       </div>
 
