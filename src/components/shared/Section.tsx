@@ -4,22 +4,35 @@ import { useEffect, useRef, useState } from 'react'
 
 const cx = classNames.bind(styles)
 
+interface SectionProps {
+  children: React.ReactNode
+  className?: string
+  title?: React.ReactNode
+  useReveal?: boolean
+  onReveal?: () => void
+}
+
 function Section({
   children,
   className,
   title,
   useReveal = true,
-}: {
-  children: React.ReactNode
-  className?: string
-  title?: React.ReactNode
-  useReveal?: boolean
-}) {
+  onReveal,
+}: SectionProps) {
   const sectionRef = useRef<HTMLElement | null>(null)
+  const onRevealRef = useRef(onReveal)
+
   const [isVisible, setIsVisible] = useState(!useReveal)
 
   useEffect(() => {
-    if (!useReveal) return
+    onRevealRef.current = onReveal
+  }, [onReveal])
+
+  useEffect(() => {
+    if (!useReveal) {
+      onRevealRef.current?.()
+      return
+    }
 
     const section = sectionRef.current
 
@@ -30,11 +43,13 @@ function Section({
         if (!entry.isIntersecting) return
 
         setIsVisible(true)
+        onRevealRef.current?.()
+
         observer.unobserve(entry.target)
       },
       {
         threshold: 0,
-        rootMargin: '0px 0px -30% 0px',
+        rootMargin: '0px 0px -50% 0px',
       },
     )
 

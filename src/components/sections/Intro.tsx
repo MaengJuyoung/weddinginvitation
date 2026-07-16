@@ -3,6 +3,8 @@ import classNames from 'classnames/bind'
 import styles from './Intro.module.scss'
 import { parseISO, format } from 'date-fns'
 import { ko } from 'date-fns/locale'
+import { useState } from 'react'
+
 import Text from '@shared/Text'
 import HeartLine from '@/components/HeartLine'
 
@@ -37,9 +39,15 @@ function Intro({
   invitation,
   intro,
 }: IntroProps) {
+  const [isRevealed, setIsRevealed] = useState(false)
   return (
-    <Section className={cx('container')}>
-      <HeartLine />
+    <Section
+      className={cx('container')}
+      onReveal={() => {
+        setIsRevealed(true)
+      }}
+    >
+      <div className={cx('wrap-heart-line')}>{isRevealed && <HeartLine />}</div>
 
       <Text className={cx('invitation')}>{invitation}</Text>
 
