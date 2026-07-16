@@ -6,11 +6,12 @@ import Video from './components/sections/Video'
 
 import ImageGallery from './components/sections/ImageGallery'
 import Intro from './components/sections/Intro'
-import Invitation from './components/sections/Invitation'
+// import Invitation from './components/sections/Invitation'
 import Calendar from './components/sections/Calendar'
 import Map from './components/sections/Map'
 import Contact from './components/sections/Contact'
 import Share from './components/sections/Share'
+import Footer from './components/sections/Footer'
 
 import useWedding from './hooks/useWedding'
 
@@ -52,6 +53,7 @@ function App() {
       <Map location={location} />
       <Contact groom={groom} bride={bride} />
       <Share groomName={groom.name} brideName={bride.name} date={date} />
+      <Footer />
     </div>
   )
 }

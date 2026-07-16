@@ -57,10 +57,11 @@
 .countdown-item {
   flex: 1;
   max-width: 110px;
-  height: 100px;
-  border-radius: 12px;
+  height: 95px;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  padding-bottom: 5px;
 
   display: flex;
   flex-direction: column;
@@ -73,7 +74,7 @@
   font-weight: 300;
   color: #222;
   line-height: 1;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
 .countdown-label {
@@ -85,7 +86,7 @@
 .countdown-message {
   margin-top: 38px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   color: #333;
   line-height: 1.7;
 
@@ -101,6 +102,22 @@
 }
 
 .heart {
-  margin: 0 6px;
-  color: #000;
+  margin: 0 3px;
+  color: #333;
+}
+
+.couple-name.ongoing{
+  color: #7c8bd2;
+
+  strong{
+    font-weight: bold;
+  }
+  .heart {
+    color: #7c8bd2;
+  }
+}
+
+.now-wedding{
+  font-weight: bold;
+  color: #7c8bd2;
 }

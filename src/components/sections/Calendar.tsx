@@ -63,12 +63,16 @@ interface RemainingTime {
   seconds: number
 }
 
+type WeddingStatus = 'before' | 'ongoing' | 'ended'
+
 const INITIAL_REMAINING_TIME: RemainingTime = {
   days: 0,
   hours: 0,
   minutes: 0,
   seconds: 0,
 }
+
+const ONE_DAY = 1000 * 60 * 60 * 24
 
 function Calendar({
   date,
@@ -77,44 +81,70 @@ function Calendar({
 }: CalendarProps) {
   const weddingDate = useMemo(() => parseISO(date), [date])
 
+  // 결혼식 종료 시간: 당일 오후 2시
+  const weddingEndDate = useMemo(() => {
+    const endDate = new Date(weddingDate)
+    endDate.setHours(14, 0, 0, 0)
+
+    return endDate
+  }, [weddingDate])
+
   const [remainingTime, setRemainingTime] = useState<RemainingTime>(
     INITIAL_REMAINING_TIME,
   )
 
+  const [weddingStatus, setWeddingStatus] = useState<WeddingStatus>('before')
+
+  const [passedDays, setPassedDays] = useState(0)
+
   useEffect(() => {
-    const updateRemainingTime = () => {
+    const updateWeddingTime = () => {
       const now = new Date()
 
-      const remainingMilliseconds = differenceInMilliseconds(weddingDate, now)
+      // 오후 2시 이후
+      if (now >= weddingEndDate) {
+        const passedMilliseconds = differenceInMilliseconds(now, weddingEndDate)
 
-      if (remainingMilliseconds <= 0) {
+        setWeddingStatus('ended')
+        setPassedDays(Math.floor(passedMilliseconds / ONE_DAY))
         setRemainingTime(INITIAL_REMAINING_TIME)
+
         return
       }
 
+      // 오후 12시부터 오후 2시 전까지
+      if (now >= weddingDate) {
+        setWeddingStatus('ongoing')
+        setPassedDays(0)
+        setRemainingTime(INITIAL_REMAINING_TIME)
+
+        return
+      }
+
+      // 결혼식 시작 전
+      const remainingMilliseconds = differenceInMilliseconds(weddingDate, now)
+
       const totalSeconds = Math.floor(remainingMilliseconds / 1000)
 
-      const days = Math.floor(totalSeconds / (60 * 60 * 24))
-      const hours = Math.floor((totalSeconds / (60 * 60)) % 24)
-      const minutes = Math.floor((totalSeconds / 60) % 60)
-      const seconds = totalSeconds % 60
+      setWeddingStatus('before')
+      setPassedDays(0)
 
       setRemainingTime({
-        days,
-        hours,
-        minutes,
-        seconds,
+        days: Math.floor(totalSeconds / (60 * 60 * 24)),
+        hours: Math.floor((totalSeconds / (60 * 60)) % 24),
+        minutes: Math.floor((totalSeconds / 60) % 60),
+        seconds: totalSeconds % 60,
       })
     }
 
-    updateRemainingTime()
+    updateWeddingTime()
 
-    const timer = window.setInterval(updateRemainingTime, 1000)
+    const timer = window.setInterval(updateWeddingTime, 1000)
 
     return () => {
       window.clearInterval(timer)
     }
-  }, [weddingDate])
+  }, [weddingDate, weddingEndDate])
 
   const countdownItems = [
     {
@@ -148,7 +178,9 @@ function Calendar({
             </span>
 
             <span className={cx('txt-time')}>
-              {format(weddingDate, 'eeee aaa h시', { locale: ko })}
+              {format(weddingDate, 'eeee aaa h시', {
+                locale: ko,
+              })}
             </span>
           </div>
         </div>
@@ -171,7 +203,6 @@ function Calendar({
         />
       </div>
 
-      {/* 카운트다운 */}
       <div className={cx('wrap-countdown')}>
         <ul className={cx('countdown-list')}>
           {countdownItems.map(({ label, value }) => (
@@ -184,12 +215,30 @@ function Calendar({
         </ul>
 
         <p className={cx('countdown-message')}>
-          <strong>{groomName}</strong>
-          <span className={cx('heart')}>♥</span>
-          <strong>{brideName}</strong>
-          <span> 결혼식이 </span>
-          <em>{remainingTime.days}일</em>
-          <span> 남았습니다</span>
+          <span
+            className={cx('couple-name', {
+              ongoing: weddingStatus === 'ongoing',
+            })}
+          >
+            <strong>{groomName}</strong>
+            <span className={cx('heart')}>♥</span>
+            <strong>{brideName} </strong>
+          </span>
+          {weddingStatus === 'ended' ? (
+            <>
+              <span>결혼식이 </span>
+              <em>{passedDays}일</em>
+              <span> 지났습니다</span>
+            </>
+          ) : weddingStatus === 'ongoing' ? (
+            <span className={cx('now-wedding')}>결혼식이 진행 중입니다 💍</span>
+          ) : (
+            <>
+              <span>결혼식이 </span>
+              <em>{remainingTime.days}일</em>
+              <span> 남았습니다</span>
+            </>
+          )}
         </p>
       </div>
     </Section>

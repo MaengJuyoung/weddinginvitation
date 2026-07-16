@@ -1,46 +1,56 @@
 .wrap-accoridon {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
+  .wrap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px 0.5px #ccc;
+    cursor: pointer;
+
+    .ico-arrow-down {
+      width: 20px;
+      height: 20px;
+      fill: #aaa;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  .wrap-content {
+    max-height: 0;
+    overflow: hidden;
+
+    padding: 0 10px;
+    background: #e2eafc;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 1px 2px 5px 1px #ccc;
+
+    transition:
+      max-height 0.35s ease,
+      padding 0.35s ease;
+  }
+
+  &:nth-of-type(3) {
+    .wrap-content {
+      background: #ffebef;
+    }
+  }
+
+  &.open {
     .wrap-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 13px 20px;
-        background-color: #fff;
-        border-radius: 6px;
-        box-shadow: 1px 1px 5px 0.5px #ccc;
-        cursor: pointer;
+      border-radius: 6px 6px 0 0;
 
-        .ico-arrow-down {
-            width: 20px;
-            height: 20px;
-            fill: #aaa;
-        }
+      .ico-arrow-down {
+        transform: rotate(-180deg);
+      }
     }
 
     .wrap-content {
-        display: none;
-        padding: 20px 10px;
-        background: #e2eafc;
-        border-radius: 0 0 6px 6px;
-        box-shadow: 1px 2px 5px 1px #ccc;
+      max-height: 500px; // 내용보다 충분히 크게
+      padding: 20px 10px;
     }
-
-    &:nth-of-type(3){
-        .wrap-content {
-            background: #ffebef;
-        }
-    }
-}
-
-.wrap-accoridon.open {
-    .wrap-header {
-        border-radius: 6px 6px 0 0;
-        .ico-arrow-down {
-          transform: rotate(-180deg);
-        }
-    }
-    .wrap-content {
-        display: block;
-    }
+  }
 }
