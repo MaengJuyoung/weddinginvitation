@@ -21,6 +21,12 @@ const css = `
     pointer-events: none;
   }
 
+  .rdp-month{
+    padding: 10px 0 40px;
+    border-top: 1px solid #b5c7ed;
+    border-bottom: 1px solid #b5c7ed;
+  }
+
   .rdp-day:nth-of-type(1) button {
     color: #d88589;
   }
@@ -174,14 +180,20 @@ function Calendar({
 
           <div className={cx('wrap-header')}>
             <span className={cx('txt-date')}>
-              {format(weddingDate, 'yyyy.MM.dd')}
-            </span>
-
-            <span className={cx('txt-time')}>
-              {format(weddingDate, 'eeee aaa h시', {
+              {format(weddingDate, 'yyyy.MM.dd eeee', {
+                locale: ko,
+              })}{' '}
+              |{' '}
+              {format(weddingDate, 'aaa h시', {
                 locale: ko,
               })}
             </span>
+
+            {/* <span className={cx('txt-time')}>
+              {format(weddingDate, 'eeee aaa h시', {
+                locale: ko,
+              })}
+            </span> */}
           </div>
         </div>
       }
