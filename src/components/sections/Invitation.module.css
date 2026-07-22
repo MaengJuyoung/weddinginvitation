@@ -1,0 +1,10 @@
+.container {
+  text-align: center;
+  line-height: 26px;
+  margin: 0 24px 10vh;
+}
+.container .ico-post {
+  width: 20px;
+  height: 20px;
+  margin: 72px 0 8px;
+}/*# sourceMappingURL=Invitation.module.css.map */

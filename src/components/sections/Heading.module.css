@@ -1,11 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Oooh+Baby&display=swap");
+.oooh-baby-regular {
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .container {
-  font-weight: bold;
+  font-family: "Oooh Baby", cursive;
+  font-weight: 400;
   text-align: center;
+  background: #f7f6ee;
+  padding: 10vh 0 5vh 0 !important;
+  color: #abc4ff;
 }
 .container .txt-date {
-  font-size: 30px;
-  margin-bottom: 8px;
+  font-size: 40px;
 }
 .container .txt-day {
-  font-size: 17px;
+  font-size: 35px;
 }/*# sourceMappingURL=Heading.module.css.map */

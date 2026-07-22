@@ -1,5 +1,14 @@
 .container {
   padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s ease;
+}
+.container.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 .container .txt-title {
   font-size: 18px;

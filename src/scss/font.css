@@ -1,4 +1,19 @@
-@font-face {
-  font-family: "NanumGeumEunBoHwa";
-  src: url("../assets/fonts/NanumGeumEunBoHwa.woff2") format("woff2"), url("../assets/fonts/NanumGeumEunBoHwa.woff") format("woff"), url("../assets/fonts/NanumGeumEunBoHwa.ttf") format("truetype");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nixie+One&display=swap");
+.nixie-one-regular {
+  font-family: "Nixie One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gowun-batang-regular {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gowun-batang-bold {
+  font-family: "Gowun Batang", serif;
+  font-weight: 700;
+  font-style: normal;
 }/*# sourceMappingURL=font.css.map */

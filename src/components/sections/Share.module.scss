@@ -26,12 +26,17 @@
                 padding: 10px 15px;
                 background: #FCE777;
                 justify-content: space-between;
+                font-size: 15px;
             }
         }
 
         svg {
             width: 22px;
             height: 22px;
+            
+            &.ico-kakao{
+                color: #777;
+            }
         }
     }
 

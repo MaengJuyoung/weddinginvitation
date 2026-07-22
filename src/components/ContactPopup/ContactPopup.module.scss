@@ -1,0 +1,308 @@
+.dimmed {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 18px;
+
+  background-color: rgba(48, 42, 53, 0.48);
+  overscroll-behavior: contain;
+
+  animation: dimmedAppear 0.3s ease both;
+}
+
+.popup {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100dvh - 80px);
+  padding: 56px 32px 36px;
+
+  overflow: hidden;
+  overscroll-behavior: contain;
+
+  background-color: #fafafa;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+
+  animation: popupAppear 0.35s ease both;
+}
+
+.closeButton {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 1;
+
+  width: 32px;
+  height: 32px;
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+
+  span {
+    position: absolute;
+    top: 15px;
+    left: 6px;
+
+    width: 21px;
+    height: 2px;
+
+    background-color: #555d68;
+    border-radius: 2px;
+
+    &:first-child {
+      transform: rotate(45deg);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.header {
+  flex-shrink: 0;
+
+  text-align: center;
+
+  h2 {
+    margin: 0;
+
+    color: #242936;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  p {
+    margin: 10px 0 0;
+
+    color: #444;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.tabs {
+  display: flex;
+  flex-shrink: 0;
+
+  margin-top: 48px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.tab {
+  position: relative;
+
+  flex: 1;
+  padding: 0 8px 12px;
+
+  color: #aaa;
+  font-size: 17px;
+  font-weight: 400;
+
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+
+    height: 2px;
+
+    background-color: transparent;
+
+    content: '';
+  }
+
+  &.active {
+    color: #222;
+    font-weight: 500;
+
+    &::after {
+      background-color: #222;
+    }
+  }
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  min-height: 0;
+  max-height: calc(100dvh - 360px);
+  margin-top: 32px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.contactCard {
+  flex-shrink: 0;
+
+  padding: 26px 24px 24px;
+
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  strong {
+    color: #252a35;
+    font-size: 17px;
+    font-weight: 500;
+  }
+
+  span {
+    color: #99928f;
+    font-size: 15px;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 26px;
+
+  a {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+    height: 54px;
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.messageButton {
+  background-color: #96c9ff;
+
+  &.bride {
+    background-color: #e8b4c1;
+  }
+}
+
+.callButton {
+  background-color: #606060;
+}
+
+@keyframes dimmedAppear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popupAppear {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .dimmed {
+    padding: 36px 18px;
+  }
+
+  .popup {
+    max-height: calc(100dvh - 72px);
+    padding: 52px 24px 32px;
+  }
+
+  .header {
+    h2 {
+      font-size: 25px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  .tabs {
+    margin-top: 38px;
+  }
+
+  .contactList {
+    max-height: calc(100dvh - 330px);
+    margin-top: 26px;
+  }
+
+  .contactCard {
+    padding: 24px 20px 22px;
+  }
+
+  .buttons {
+    gap: 10px;
+
+    a {
+      height: 52px;
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .dimmed {
+    padding: 28px 12px;
+  }
+
+  .popup {
+    max-height: calc(100dvh - 56px);
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .contactList {
+    max-height: calc(100dvh - 310px);
+  }
+
+  .contactCard {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}

@@ -1,0 +1,55 @@
+.introPopup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100dvh;
+  background-color: rgba(17, 17, 17, 0.6666666667);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+.introPopup.closing {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.text {
+  margin: 0;
+  padding: 0 24px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 5px;
+  background-color: #fff;
+  vertical-align: -2px;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+@media (max-width: 480px) {
+  .text {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=IntroPopup.module.css.map */

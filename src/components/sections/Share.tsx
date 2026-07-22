@@ -6,6 +6,7 @@ import { parseISO, format } from 'date-fns'
 import { ko } from 'date-fns/locale'
 
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { IconCopy, IconExternalLink } from '@/components/icons'
 
 const cx = classNames.bind(styles)
 
@@ -71,7 +72,7 @@ function Share({ groomName, brideName, date }: ShareProps) {
       <div className={cx('wrap-share')}>
         <button type="button" onClick={handleShareKakao}>
           <span>카카오톡으로 청첩장 전하기</span>
-          <IconKakao className={cx('ico-kakao')} />
+          <IconExternalLink className={cx('ico-kakao')} />
         </button>
         <CopyToClipboard
           text={SHARE_URL}
@@ -81,12 +82,12 @@ function Share({ groomName, brideName, date }: ShareProps) {
         >
           <button type="button">
             {/* <span>청첩장 주소 복사하기</span> */}
-            <IconClipboard className={cx('ico-copy')} />
+            <IconCopy className={cx('ico-copy')} />
           </button>
         </CopyToClipboard>
       </div>
 
-      <div className={cx('notice')}>
+      {/* <div className={cx('notice')}>
         <div className={cx('notice-title')}>🤍 참고해주세요 🤍</div>
 
         <div className={cx('notice-content')}>
@@ -94,57 +95,8 @@ function Share({ groomName, brideName, date }: ShareProps) {
           <br />
           보내주신 마음만 감사히 받겠습니다.{' '}
         </div>
-      </div>
+      </div> */}
     </Section>
-  )
-}
-
-function IconKakao({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-    >
-      <path
-        d="M8 24L24 8M12 8H24V20"
-        stroke="#777"
-        stroke-width="1.6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  )
-}
-
-function IconClipboard({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-    >
-      <rect
-        x="7.5"
-        y="5.5"
-        width="14"
-        height="18"
-        rx="1.8"
-        stroke="#fff"
-        stroke-width="1.6"
-      />
-      <path
-        d="M13 26.5H22.5C24.1569 26.5 25.5 25.1569 25.5 23.5V11"
-        stroke="#fff"
-        stroke-width="1.6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
   )
 }
 

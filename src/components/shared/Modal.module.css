@@ -1,0 +1,38 @@
+.wrap-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1001;
+}
+.wrap-modal .wrap-body {
+  width: 320px;
+}
+.wrap-modal .wrap-body .wrap-content {
+  padding: 18px;
+}
+.wrap-modal .wrap-body .wrap-content .txt-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+.wrap-modal .wrap-body .wrap-buttons {
+  display: flex;
+}
+.wrap-modal .wrap-body .wrap-buttons button {
+  flex: 1;
+  font-size: 17px;
+  padding: 15px 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.wrap-modal .wrap-body .wrap-buttons button:nth-child(1) {
+  background-color: var(--beige);
+}
+.wrap-modal .wrap-body .wrap-buttons button:nth-child(2) {
+  background-color: var(--black);
+  color: #fff;
+}/*# sourceMappingURL=Modal.module.css.map */

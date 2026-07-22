@@ -1,0 +1,104 @@
+@import url("../../scss/font.scss");
+.container {
+  background: #edf2fc;
+  padding: 12vh 0;
+}
+.container .wrap-header {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+}
+.container .wrap-header .txt-title {
+  font-family: "Nixie One", system-ui;
+  text-align: center;
+  font-weight: 100;
+  font-size: 35px;
+  margin: 15px 0 50px;
+  color: #333;
+}
+.container .wrap-header .txt-subtitle {
+  position: relative;
+  text-align: center;
+  font-weight: 400;
+  font-size: 15px;
+  white-space: pre-line;
+  margin: 5px;
+  line-height: 20px;
+}
+.container .wrap-header .txt-subtitle:nth-of-type(1) {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.container .wrap-header .txt-subtitle:nth-of-type(2) {
+  line-height: 0;
+  margin-bottom: 25px;
+}
+.container .wrap-header .txt-subtitle:nth-of-type(2) .ico-copy {
+  position: relative;
+  width: 25px;
+  top: 10.5px;
+}
+.container .wrap-map {
+  position: relative;
+}
+.container .wrap-map .map {
+  width: 100%;
+  height: 250px;
+}
+.container .wrap-map .btn-find-way {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5019607843);
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  left: 55px;
+  padding: 0 5px;
+  height: 30px;
+  position: absolute;
+  text-decoration: none;
+  top: 5px;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.container .wrap-map .btn-find-way .ico-pin {
+  width: 20px;
+  margin-right: 5px;
+}
+.container .wrap-transport {
+  padding: 0 24px;
+}
+.container .wrap-transport .wrap-waytocome {
+  margin: 25px 0 10px;
+  line-height: 1.3;
+  padding-bottom: 25px;
+}
+.container .wrap-transport .wrap-waytocome:nth-of-type(1) {
+  margin-top: 45px;
+}
+.container .wrap-transport .wrap-waytocome:nth-of-type(4) {
+  padding-bottom: 0;
+}
+.container .wrap-transport .wrap-waytocome:nth-of-type(3) ul li {
+  white-space: pre-line;
+}
+.container .wrap-transport .wrap-waytocome .ico-bus, .container .wrap-transport .wrap-waytocome .ico-subway, .container .wrap-transport .wrap-waytocome .ico-car, .container .wrap-transport .wrap-waytocome .ico-parking {
+  position: relative;
+  width: 25px;
+  top: 8.5px;
+  left: -5px;
+}
+.container .wrap-transport .wrap-waytocome .ico-parking {
+  width: 23px;
+}
+.container .wrap-transport .wrap-waytocome .txt-label {
+  color: #abc1ff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.container .wrap-transport .wrap-waytocome ul li {
+  margin-bottom: 5px;
+}/*# sourceMappingURL=Map.module.css.map */

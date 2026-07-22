@@ -1,5 +1,6 @@
 @import url("./reset.scss");
 @import url("./font.scss");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
 :root {
   --red: #ea7664;
   --black: #544f5f;
@@ -8,5 +9,7 @@
 }
 
 body {
-  font-family: "NanumGeumEunBoHwa";
+  max-width: 860px;
+  margin: 0 auto 10vh;
+  font-family: "Gowun Batang", serif;
 }/*# sourceMappingURL=global.css.map */

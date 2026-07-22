@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"Video.module.css"}
+{"version":3,"sources":["Video.module.scss","Video.module.css"],"names":[],"mappings":"AAAA;EACI,qBAAA;ACCJ;ADAI;EACI,WAAA;EACA,kBAAA;EACA,iBAAA;ACER;ADAI;EACI,WAAA;EACA,oBAAA;KAAA,iBAAA;ACER","file":"Video.module.css"}

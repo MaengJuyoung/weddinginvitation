@@ -5,6 +5,7 @@ import Accordion from '../shared/Accordion'
 // import Accordion from '@shared/Accordion'
 import { Person, Wedding } from '@/models/wedding'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { IconCopy, IconKakaoPay, IconPhone } from '@/components/icons'
 
 const cx = classNames.bind(styles)
 
@@ -116,121 +117,12 @@ function ContactInfo({
               target="_blank"
               rel="noreferrer"
             >
-              Pay <IconCoin className={cx('ico-coin')} />
+              <IconKakaoPay className={cx('ico-kakao')} /> Pay
             </a>
           ) : null}
         </li>
       </ul>
     </div>
-  )
-}
-
-function IconPhone({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-    >
-      <path
-        d="M9.15 5.5H12.3L14.1 10.15L11.95 12.3C13.15 14.8 15.2 16.85 17.7 18.05L19.85 15.9L24.5 17.7V20.85C24.5 22.05 23.55 23 22.35 23C13.85 23 7 16.15 7 7.65C7 6.45 7.95 5.5 9.15 5.5Z"
-        stroke="currentColor"
-        stroke-width="1.6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  )
-}
-
-function IconCopy({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-    >
-      <rect
-        x="7.5"
-        y="5.5"
-        width="14"
-        height="18"
-        rx="1.8"
-        stroke="#fff"
-        stroke-width="1.6"
-      />
-      <path
-        d="M13 26.5H22.5C24.1569 26.5 25.5 25.1569 25.5 23.5V11"
-        stroke="#fff"
-        stroke-width="1.6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  )
-}
-
-function IconCoin({ className }: { className: string }) {
-  return (
-    <svg
-      className={className}
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-      fill="none"
-    >
-      <defs>
-        <linearGradient
-          id="coinOuter"
-          x1="7"
-          y1="5"
-          x2="25"
-          y2="27"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop offset="0" stop-color="#FFD83D" />
-          <stop offset="1" stop-color="#FFB800" />
-        </linearGradient>
-        <linearGradient
-          id="coinInner"
-          x1="10"
-          y1="9"
-          x2="23"
-          y2="23"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop offset="0" stop-color="#FFF45C" />
-          <stop offset="1" stop-color="#FFD400" />
-        </linearGradient>
-      </defs>
-
-      <circle cx="16" cy="16" r="12" fill="url(#coinOuter)" />
-      <circle cx="16" cy="16" r="9.2" fill="url(#coinInner)" />
-
-      <path
-        d="M10.4 12.2L13.2 20.2L16 13.4L18.8 20.2L21.6 12.2"
-        stroke="#FF9300"
-        stroke-width="2.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path
-        d="M9.8 14.6H13.5"
-        stroke="#FF9300"
-        stroke-width="2.5"
-        stroke-linecap="round"
-      />
-      <path
-        d="M18.5 14.6H22.2"
-        stroke="#FF9300"
-        stroke-width="2.5"
-        stroke-linecap="round"
-      />
-    </svg>
   )
 }
 

@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind'
 import styles from './Accordion.module.scss'
 import { PropsWithChildren, useState } from 'react'
+import { IconArrowDown } from '@/components/icons'
 
 const cx = classNames.bind(styles)
 
@@ -25,14 +26,6 @@ function Accordion({ label, children }: PropsWithChildren<AccordionProps>) {
       </div>
       <div className={cx('wrap-content')}>{children}</div>
     </div>
-  )
-}
-
-function IconArrowDown({ className }: { className: string }) {
-  return (
-    <svg className={className} version="1.1" viewBox="0 0 512 512">
-      <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
-    </svg>
   )
 }
 

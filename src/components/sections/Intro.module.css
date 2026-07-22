@@ -1,0 +1,72 @@
+.container {
+  text-align: center;
+  line-height: 26px;
+  padding: 10vh 0;
+}
+.container .wrap-persons {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 1.4px;
+  font-weight: bold;
+  margin: 70px 7px 15px;
+}
+.container .wrap-persons ul {
+  width: 49%;
+  box-sizing: border-box;
+}
+.container .wrap-persons ul li {
+  position: relative;
+  margin-bottom: 15px;
+}
+.container .wrap-persons ul li:nth-of-type(1) img {
+  width: 100%;
+  border-radius: 2px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 1px 1px 5px 1px #ccc;
+}
+.container .wrap-persons ul li span s {
+  text-decoration: none;
+  font-size: 15px;
+  color: #abc4ff;
+}
+.container .wrap-persons ul li.parents {
+  font-weight: 100;
+  font-size: 14px;
+}
+.container .wrap-persons ul li.parents span {
+  position: relative;
+}
+.container .wrap-persons ul li.parents span .ico-flower {
+  position: absolute;
+  top: -10px;
+  left: -15px;
+  width: 15px;
+}
+.container .wrap-persons ul:nth-of-type(2) span s {
+  color: #eeb1c1;
+}
+.container .wrap-persons .ico-heart {
+  fill: var(--red);
+  width: 16px;
+  height: 16px;
+  margin: 0 6px;
+}
+.container .invitation {
+  font-size: 18px;
+  font-weight: bold;
+  color: #6eb5ff;
+  margin: 20px 0 25px;
+}
+.container .intro {
+  color: #333;
+}
+.container .wrap-location {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #333;
+}/*# sourceMappingURL=Intro.module.css.map */
