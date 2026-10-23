@@ -2,9 +2,12 @@
   padding: 0 !important;
 }
 .container video {
+  display: block;
   width: 100%;
+  height: auto;
   border-radius: 8px;
   min-height: 250px;
+  object-fit: cover;
 }
 .container img {
   width: 100%;
