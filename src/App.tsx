@@ -27,10 +27,12 @@ function App() {
   const { wedding } = useWedding()
 
   const handleIntroFinish = () => {
-    // 팝업이 완전히 사라진 순간 GIF 시작
+    // 팝업이 완전히 사라진 순간 영상 재생 요청
     setIntroFinished(true)
+  }
 
-    // GIF를 1.8초 보여준 뒤 스크롤 허용
+  const handleVideoPlay = () => {
+    // 영상이 실제 재생된 시점부터 1.8초 뒤 스크롤 허용
     window.setTimeout(() => {
       setScrollEnabled(true)
     }, 1800)
@@ -85,7 +87,7 @@ function App() {
     <>
       <IntroPopup onFinish={handleIntroFinish} />
       <Heading date={date} />
-      <Video introFinished={introFinished} />
+      <Video introFinished={introFinished} onPlay={handleVideoPlay} />
       <div className={cx('container')}>
         <Intro
           groomName={wedding.groom.name}

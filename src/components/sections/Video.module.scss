@@ -1,12 +1,17 @@
-.container{
-    padding: 0 !important;
-    video{
-        width: 100%;
-        border-radius: 8px;
-        min-height: 250px;
-    }
-    img{
-        width: 100%;
-        object-fit: cover;
-    }
+.container {
+  padding: 0 !important;
+
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    min-height: 250px;
+    object-fit: cover;
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 }
