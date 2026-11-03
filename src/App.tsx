@@ -6,12 +6,14 @@ import Heading from './components/sections/Heading'
 import Video from './components/sections/Video'
 import ImageGallery from './components/sections/ImageGallery'
 import Intro from './components/sections/Intro'
+import Profile from './components/sections/Profile'
 // import Invitation from './components/sections/Invitation'
 import Calendar from './components/sections/Calendar'
 import Map from './components/sections/Map'
 import Contact from './components/sections/Contact'
 import Share from './components/sections/Share'
 import Notice from './components/sections/Notice'
+import PhotoBooth from './components/sections/PhotoBooth'
 import Footer from './components/sections/Footer'
 
 import useWedding from './hooks/useWedding'
@@ -89,17 +91,22 @@ function App() {
       <Heading date={date} />
       <Video introFinished={introFinished} onPlay={handleVideoPlay} />
       <div className={cx('container')}>
+        {/* 인트로 안내 */}
         <Intro
-          groomName={wedding.groom.name}
-          groomPhoneNumber={wedding.groom.phoneNumber}
-          groomParents={wedding.groom.parents}
-          brideName={wedding.bride.name}
-          bridePhoneNumber={wedding.bride.phoneNumber}
-          brideParents={wedding.bride.parents}
-          date={wedding.date}
-          locationName={wedding.location.name}
-          invitation={wedding.message.invitation}
-          intro={wedding.message.intro}
+          date={date}
+          locationName={location.name}
+          invitation={invitation}
+          intro={intro}
+        />
+
+        {/* 신랑 · 신부 프로필 */}
+        <Profile
+          groomName={groom.name}
+          groomPhoneNumber={groom.phoneNumber}
+          groomParents={groom.parents}
+          brideName={bride.name}
+          bridePhoneNumber={bride.phoneNumber}
+          brideParents={bride.parents}
         />
         {/* <Invitation message={intro} /> */}
         <Calendar date={date} />
@@ -107,6 +114,7 @@ function App() {
         <Map location={location} />
         <Contact groom={groom} bride={bride} />
         <Notice />
+        <PhotoBooth />
         <Share groomName={groom.name} brideName={bride.name} date={date} />
         <Footer />
       </div>

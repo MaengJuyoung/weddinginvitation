@@ -9,47 +9,25 @@ interface IntroPopupProps {
 }
 
 function IntroPopup({ onFinish }: IntroPopupProps) {
-  const text = "We're Getting Married"
-
-  const [displayText, setDisplayText] = useState('')
   const [isClosing, setIsClosing] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
 
+  const firstLineSrc = `https://res.cloudinary.com/y0qp0xrk/image/upload/v1793685706/wedding_brush_line1_vivid.png`
+  const secondLineSrc = `https://res.cloudinary.com/y0qp0xrk/image/upload/v1793685706/wedding_brush_line2_vivid.png`
+
   useEffect(() => {
-    let currentIndex = 0
-    let closeTimer: number | undefined
-    let removeTimer: number | undefined
+    const closeTimer = window.setTimeout(() => {
+      setIsClosing(true)
+    }, 4800)
 
-    const typingTimer = window.setInterval(() => {
-      currentIndex += 1
-      setDisplayText(text.slice(0, currentIndex))
-
-      if (currentIndex >= text.length) {
-        window.clearInterval(typingTimer)
-
-        // 문장이 완성된 뒤 1.2초 후 팝업 페이드아웃 시작
-        closeTimer = window.setTimeout(() => {
-          setIsClosing(true)
-        }, 1200)
-
-        // 페이드아웃이 끝난 뒤 팝업 제거 + App에 종료 알림
-        removeTimer = window.setTimeout(() => {
-          setIsVisible(false)
-          onFinish?.()
-        }, 2200)
-      }
-    }, 110)
+    const removeTimer = window.setTimeout(() => {
+      setIsVisible(false)
+      onFinish?.()
+    }, 5800)
 
     return () => {
-      window.clearInterval(typingTimer)
-
-      if (closeTimer !== undefined) {
-        window.clearTimeout(closeTimer)
-      }
-
-      if (removeTimer !== undefined) {
-        window.clearTimeout(removeTimer)
-      }
+      window.clearTimeout(closeTimer)
+      window.clearTimeout(removeTimer)
     }
   }, [onFinish])
 
@@ -59,10 +37,21 @@ function IntroPopup({ onFinish }: IntroPopupProps) {
 
   return (
     <div className={cx('introPopup', { closing: isClosing })}>
-      <p className={cx('text')}>
-        {displayText}
-        {!isClosing && <span className={cx('cursor')} />}
-      </p>
+      <div
+        className={cx('handwriting-wrap')}
+        role="img"
+        aria-label="We're getting Married!"
+      >
+        {/* 첫 번째 줄 */}
+        <div className={cx('handwriting-line', 'first-line')}>
+          <img src={firstLineSrc} alt="" />
+        </div>
+
+        {/* 두 번째 줄 */}
+        <div className={cx('handwriting-line', 'second-line')}>
+          <img src={secondLineSrc} alt="" />
+        </div>
+      </div>
     </div>
   )
 }

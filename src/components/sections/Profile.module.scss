@@ -1,0 +1,242 @@
+
+@import "../../scss/utils.scss";
+
+.container {
+  @include txt-content;
+  padding: 0 0 10vh;
+
+  .wrap-persons {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 7px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1.4px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      width: 49%;
+      box-sizing: border-box;
+
+      li {
+        position: relative;
+        margin-bottom: 0;
+      }
+
+      // 신랑 · 신부 사진
+      .visual {
+        margin-bottom: 20px;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+          border-radius: 4px;
+          object-fit: cover;
+          box-shadow: 1px 1px 5px 1px #ccc;
+        }
+      }
+
+      // 신랑 · 신부 이름
+      .person-name {
+        margin-bottom: 14px;
+        text-align: center;
+        font-size: 20px;
+
+        span {
+          s {
+            margin-right: 3px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #abc4ff;
+          }
+        }
+      }
+
+      // 프로필 소개
+      .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #333;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.7;
+        letter-spacing: 0;
+        text-align: center;
+        word-break: keep-all;
+
+        // 생년월일 + MBTI
+        .profile-info {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          white-space: nowrap;
+
+          .birth {
+            margin: 0;
+            color: #555;
+            font-size: 14px;
+          }
+
+          .mbti {
+            color: #708bc9;
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+
+        .profile-mbti {
+            & > p {
+                color: #708bc9;
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+
+        // 성격 소개
+        .profile-description {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 0;
+        //   margin-top: 15px;
+
+          p {
+            margin: 0;
+          }
+        }
+
+        // 해시태그
+        .hashtag {
+          display: inline-block;
+        //   margin-top: 10px;
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+          background: none;
+          color: #555;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.7;
+          letter-spacing: 0;
+          white-space: nowrap;
+        }
+      }
+
+      // 부모님 소개
+      .parents {
+        margin-top: auto;
+        padding-top: 30px;
+        font-size: 15px;
+        font-weight: 100;
+        text-align: center;
+        letter-spacing: 0;
+
+        span {
+          position: relative;
+
+          .ico-flower {
+            position: absolute;
+            top: -10px;
+            left: -15px;
+            width: 15px;
+          }
+        }
+      }
+
+      // 신부 포인트 컬러
+      &:nth-of-type(2) {
+        .person-name {
+          span {
+            s {
+              color: #eeb1c1;
+            }
+          }
+        }
+
+        .profile {
+          .profile-info {
+            .mbti {
+              color: #d58ba0;
+            }
+          }
+
+        .profile-mbti {
+            & > p {
+                color: #d58ba0;
+            }
+        }
+
+        //   .hashtag {
+        //     color: #eeb1c1;
+        //   }
+        }
+      }
+    }
+
+    .ico-heart {
+      fill: var(--red);
+      width: 16px;
+      height: 16px;
+      margin: 0 6px;
+    }
+  }
+
+  .button-wrap {
+    width: 100%;
+    padding: 50px 20px;
+    box-sizing: border-box;
+
+    .contact-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      height: 64px;
+      padding: 0 24px;
+
+      color: #fff;
+      font-size: 17px;
+      font-weight: 500;
+
+      background-color: #abc4ff;
+      border: 0;
+      border-radius: 12px;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      -webkit-tap-highlight-color: transparent;
+
+      .arrow {
+        position: relative;
+        display: block;
+        width: 22px;
+        height: 14px;
+        top: -5px;
+
+        border-bottom: 2px solid #fff;
+
+        &::after {
+          position: absolute;
+          right: 0;
+          bottom: -1px;
+
+          width: 11px;
+          height: 11px;
+
+          border-right: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+
+          content: '';
+          transform: rotate(-45deg);
+          transform-origin: right bottom;
+        }
+      }
+    }
+  }
+}

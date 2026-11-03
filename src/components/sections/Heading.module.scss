@@ -1,24 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Oooh+Baby&display=swap');
-.oooh-baby-regular {
-  font-family: "Oooh Baby", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
+
+@import url('https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap');
 
 .container {
-    font-family: "Oooh Baby", cursive;
+  font-family: 'Oooh Baby', cursive;
+  font-weight: 400;
+  text-align: center;
+  background: #f7f6ee;
+  padding: 10vh 0 5vh !important;
+  color: #abc4ff;
+
+  .txt-date {
+    font-family: 'Oooh Baby', cursive;
+    font-size: 40px;
     font-weight: 400;
-    text-align: center;
-    background: #f7f6ee;
-    padding: 10vh 0 5vh 0 !important;
-    color: #abc4ff;
+    line-height: 1.3;
 
-    .txt-date {
-        font-size: 40px;
-        // margin-bottom: 10px;
-    }
-
-    .txt-day {
-        font-size: 35px;
-    }
+    // 필기체 형태를 유지하면서 획 두께 보강
+    -webkit-text-stroke: 0.7px #abc4ff;
+    paint-order: stroke fill;
+  }
 }

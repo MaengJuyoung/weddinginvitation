@@ -371,3 +371,35 @@ export function IconCloseCircle({ className, ...props }: IconProps) {
     </svg>
   )
 }
+
+// 네이버지도 아이콘
+export function IconNaverMap({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="20"
+      height="24"
+      viewBox="0 0 24 30"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 0C5.373 0 0 5.373 0 12c0 8 12 18 12 18s12-10 12-18C24 5.373 18.627 0 12 0Z"
+        fill="#03C75A"
+      />
+      <text
+        x="12"
+        y="15"
+        textAnchor="middle"
+        dominantBaseline="middle"
+        fill="#fff"
+        fontSize="15"
+        fontWeight="800"
+        fontFamily="Arial, sans-serif"
+      >
+        N
+      </text>
+    </svg>
+  )
+}

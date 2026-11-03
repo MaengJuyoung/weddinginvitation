@@ -11,6 +11,7 @@ import {
   IconParking,
   IconPin,
   IconSubway,
+  IconNaverMap,
 } from '@/components/icons'
 
 declare global {
@@ -24,8 +25,10 @@ const cx = classNames.bind(styles)
 function Map({ location }: { location: Location }) {
   const mapContainer = useRef<HTMLDivElement | null>(null)
 
+  // 카카오 지도 생성
   useEffect(() => {
     const script = document.createElement('script')
+
     script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.REACT_APP_KAKAO_APP_KEY}&autoload=false`
     script.async = true
 
@@ -33,6 +36,8 @@ function Map({ location }: { location: Location }) {
 
     script.onload = () => {
       window.kakao.maps.load(() => {
+        if (!mapContainer.current) return
+
         const position = new window.kakao.maps.LatLng(
           location.lat,
           location.lng,
@@ -43,14 +48,27 @@ function Map({ location }: { location: Location }) {
           level: 4,
         }
 
-        const market = new window.kakao.maps.Marker({
+        const marker = new window.kakao.maps.Marker({
           position,
         })
+
         const map = new window.kakao.maps.Map(mapContainer.current, options)
-        market.setMap(map)
+
+        marker.setMap(map)
       })
     }
-  }, [location])
+
+    return () => {
+      script.onload = null
+      script.remove()
+    }
+  }, [location.lat, location.lng])
+
+  // 카카오맵: 기존 링크 사용
+  const kakaoMapUrl = location.link
+
+  // 네이버지도: 웨딩홀 상세 페이지
+  const naverMapUrl = 'https://map.naver.com/p/entry/place/1769349736'
 
   return (
     <Section
@@ -58,36 +76,57 @@ function Map({ location }: { location: Location }) {
       title={
         <div className={cx('wrap-header')}>
           <h2 className={cx('txt-title')}>LOCATION</h2>
+
           <p className={cx('txt-subtitle')}>{location.name}</p>
-          <p className={cx('txt-subtitle')}>
-            {location.address}
-            <CopyToClipboard
-              text={`${location.address}`}
-              onCopy={() => {
-                alert('복사가 완료되었습니다.')
-              }}
-            >
-              <button className={cx('button')}>
-                <IconCopy className={cx('ico-copy')} />
-              </button>
-            </CopyToClipboard>
-          </p>
+
+          <p className={cx('txt-subtitle')}>{location.address}</p>
         </div>
       }
     >
+      {/* 지도 영역 */}
       <div className={cx('wrap-map')}>
-        <div className={cx('map')} ref={mapContainer}></div>
-        <a
-          className={cx('btn-find-way')}
-          href={location.link}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <IconPin className={cx('ico-pin')} />
-          카카오맵 열기
-        </a>
+        <div className={cx('map')} ref={mapContainer} />
+
+        {/* 지도 및 주소 복사 버튼 */}
+        <div className={cx('wrap-map-buttons')}>
+          {/* 카카오맵 */}
+          <a
+            className={cx('btn-find-way')}
+            href={kakaoMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconPin className={cx('ico-pin')} />
+            카카오맵
+          </a>
+
+          {/* 네이버지도 */}
+          <a
+            className={cx('btn-find-way')}
+            href={naverMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconNaverMap className={cx('ico-naver')} />
+            네이버지도
+          </a>
+
+          {/* 주소 복사하기 */}
+          <CopyToClipboard
+            text={location.address}
+            onCopy={() => {
+              alert('복사가 완료되었습니다.')
+            }}
+          >
+            <button type="button" className={cx('btn-find-way')}>
+              <IconCopy className={cx('ico-copy')} />
+              주소복사하기
+            </button>
+          </CopyToClipboard>
+        </div>
       </div>
 
+      {/* 교통 안내 영역 */}
       <div className={cx('wrap-transport')}>
         <WayToCome
           icon={<IconBus className={cx('ico-bus')} />}
@@ -117,6 +156,7 @@ function Map({ location }: { location: Location }) {
   )
 }
 
+// 교통 안내 공통 컴포넌트
 function WayToCome({
   icon,
   label,

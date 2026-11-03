@@ -86,16 +86,6 @@ function Share({ groomName, brideName, date }: ShareProps) {
           </button>
         </CopyToClipboard>
       </div>
-
-      {/* <div className={cx('notice')}>
-        <div className={cx('notice-title')}>🤍 참고해주세요 🤍</div>
-
-        <div className={cx('notice-content')}>
-          화환 반입이 불가하여 정중히 사양합니다.
-          <br />
-          보내주신 마음만 감사히 받겠습니다.{' '}
-        </div>
-      </div> */}
     </Section>
   )
 }
