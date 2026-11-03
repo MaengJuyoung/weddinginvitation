@@ -113,8 +113,8 @@ function App() {
         <ImageGallery images={galleryImages} />
         <Map location={location} />
         <Contact groom={groom} bride={bride} />
-        <Notice />
         <PhotoBooth />
+        <Notice />
         <Share groomName={groom.name} brideName={bride.name} date={date} />
         <Footer />
       </div>

@@ -30,8 +30,8 @@
 // 손글씨 전체 영역
 .handwriting-wrap {
   position: relative;
-  width: calc(100% - 40px);
-  max-width: 540px;
+  width: calc(100% - 80px); // 기존 40px → 80px
+  max-width: 480px; // 기존 540px → 480px
   aspect-ratio: 502 / 235;
 }
 
@@ -82,12 +82,14 @@
   }
 }
 
+// 모바일
 @media (max-width: 480px) {
   .handwriting-wrap {
-    width: calc(100% - 32px);
+    width: calc(100% - 52px); // 기존 32px → 52px
   }
 }
 
+// 모션 최소화 설정
 @media (prefers-reduced-motion: reduce) {
   .handwriting-line {
     animation: none;

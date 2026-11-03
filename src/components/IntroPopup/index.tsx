@@ -12,8 +12,8 @@ function IntroPopup({ onFinish }: IntroPopupProps) {
   const [isClosing, setIsClosing] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
 
-  const firstLineSrc = `https://res.cloudinary.com/y0qp0xrk/image/upload/v1793685706/wedding_brush_line1_vivid.png`
-  const secondLineSrc = `https://res.cloudinary.com/y0qp0xrk/image/upload/v1793685706/wedding_brush_line2_vivid.png`
+  const firstLineSrc = `https://res.cloudinary.com/y0qp0xrk/image/upload/v1793685706/wedding_brush_line1.png`
+  const secondLineSrc = `https://res.cloudinary.com/y0qp0xrk/image/upload/v1793685706/wedding_brush_line2.png`
 
   useEffect(() => {
     const closeTimer = window.setTimeout(() => {
